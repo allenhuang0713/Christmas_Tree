@@ -1,0 +1,59 @@
+<!--    * 　　-->
+<!--   *** 　 -->
+<!--  *****   -->
+<!-- *******  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>輸入聖誕樹的高度，然後用*組合出來</title>
+</head>
+
+<body>
+
+    <span>請輸入聖誕樹高度：</span>
+    <input type="text" id="height" value="">
+    <button onclick="heiClick()">提交</button>
+
+    <br><br>
+    <p id="demo"></p>
+
+    <script>
+        function heiClick() {
+
+
+            var treeHei = document.getElementById('height').value;
+            var stars = '';
+            for (var j = 1; j <= treeHei; j++) {
+                for (var z = treeHei - 1; z >= j; z--) {
+                    stars = stars + '&emsp;';
+                }
+                for (var i = 0; i < 2 * j - 1; i++) {
+
+                    stars = stars + '＊';
+                    console.log(stars);
+                }
+                stars = stars + "<br>";
+                console.log(stars);
+
+            }
+            document.getElementById('demo').innerHTML = stars;
+
+        }
+
+        // ※ 注意要用　全形的＊　和　全形的空白 ※
+
+        // 分解動作
+        // 1. 觀察列和星星數量的變化: 星星數量 = 最終列 + 最終列 - 1
+        //    1＝>1、2=>3、3=>5、4=>7、5=>9
+        // 2. 觀察列和空白數量的變化: 假設以四列舉例
+        //    第一列：1=>3、5=>7
+        //    第二列：1=>2、6=>7
+        //    第三列：1=>1、7=>7
+        //    第四列：
+        // 3. 觀察星星中間位置: 中間位置 = 最終列
+    </script>
+</body>
+
+</html>
